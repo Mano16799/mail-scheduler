@@ -1,0 +1,78 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.nav-con{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.side-btn{
+  width: 100%;
+  text-align: left;
+  height: 50px;
+  margin-bottom: 2px;
+}
+.form{
+  display: block;
+}
+.form mat-form-field{
+  width: 100%;
+}
+.form-head{
+  display: flex;
+  justify-content: space-between;
+}
+.save-btn{
+  margin: 10px;
+}
+.btns{
+  width: 100px;
+  display: block;
+}
+.scheduled-emails{
+  display: flex;
+  justify-content: space-between;
+}
+
+.text{
+  margin-bottom: 0;
+}
+
+.sub-text{
+  font-size: 12px;
+}
+
+.example-ripple-container {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+  margin-bottom: 15px;
+}
+
+/** Styles to make the ripple look better. */
+.example-ripple-checkbox {
+  margin: 6px 12px 6px 0;
+}
+
+.example-ripple-form-field {
+  margin: 0 12px 0 0;
+}

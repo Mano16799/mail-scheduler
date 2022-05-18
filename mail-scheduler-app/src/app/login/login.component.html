@@ -1,0 +1,23 @@
+<div id="body">
+    <h2 style="color: white;">Login</h2>
+    <form #registerForm="ngForm">
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="email" type="email" class="form-control" [(ngModel)]="formData.email"
+                    name="email" required #email="ngModel">
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill"> 
+                <mat-label>Password</mat-label>
+                <input matInput placeholder="password" type="password" class="form-control" [(ngModel)]="formData.password"
+                    name="password" required #password="ngModel">
+            </mat-form-field>
+        </div>
+        <div>
+            <button type="submit" mat-raised-button color="primary" [disabled]="!registerForm.form.valid"
+            (click)="login()" #loginBtn>Login</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,88 @@
+<div class="row">
+    <div class="col-md-3">
+        <div>
+            <button class="side-btn" mat-flat-button (click)="openDialog()">
+                <mat-icon>add</mat-icon>Add Account
+            </button>
+        </div>
+        <div>
+            <div *ngIf="userMailConfig">
+                <mat-button-toggle-group name="fontStyle" [vertical]="true">
+                    <div *ngFor="let data of userMailConfig">
+                        <mat-button-toggle class="btns" (click)="storeActiveMailID(data.id)">{{data.accountName}}
+                        </mat-button-toggle>
+                    </div>
+                </mat-button-toggle-group>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <mat-tab-group>
+            <mat-tab label="Scheduled emails">
+                <div *ngFor="let data of allMails"
+                    class="example-ripple-container mat-elevation-z4 scheduled-emails" matRipple [matRippleCentered]="centered"
+                    [matRippleDisabled]="disabled" [matRippleUnbounded]="unbounded" [matRippleRadius]="radius"
+                    [matRippleColor]="color" (click)="updateMailDetails(data.id)">
+                    <div>
+                        <h4 class="text">{{data.to}}</h4>
+                        <p class="text sub-text">{{data.subject}}</p>
+                        <p class="text sub-text">{{data.body}}</p>
+                    </div>
+                    <div class="scheduled-emails">
+                        <div>
+                            <mat-icon>calendar_today</mat-icon>
+                        </div>
+                        <div>
+                            <p class="text  sub-text">{{data.scheduledDate}}</p>
+                            <p class="text sub-text">{{data.scheduledTime}}</p>
+                        </div>
+                    </div>
+                </div>
+            </mat-tab>
+            <mat-tab label="Sent emails">
+
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+    <div class="col-md-5">
+        <mat-card>
+            <div class="form-head">
+                <h3>Schedule email</h3>
+                <h5>New Email</h5>
+            </div>
+            <div class="form">
+                <form [formGroup]="schedulerForm">
+                    <mat-form-field appearance="fill">
+                        <mat-label>To</mat-label>
+                        <input matInput formControlName="to">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Cc</mat-label>
+                        <input matInput formControlName="cc">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Bcc</mat-label>
+                        <input matInput formControlName="bcc">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Subject</mat-label>
+                        <input matInput formControlName="subject">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Body</mat-label>
+                        <textarea matInput formControlName="body"></textarea>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Schedule date & time</mat-label>
+                        <input matInput type="datetime-local" formControlName="dateTime">
+                    </mat-form-field>
+                    <div>
+                        <button mat-raised-button class="save-btn" [disabled]="!schedulerForm.valid"
+                            (click)="saveEmail()">Schedule email</button>
+                        <button mat-raised-button class="save-btn" (click)="discardTheForm()">Discard Changes</button>
+                    </div>
+                </form>
+            </div>
+        </mat-card>
+    </div>
+</div>
